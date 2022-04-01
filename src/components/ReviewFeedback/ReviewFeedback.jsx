@@ -1,13 +1,16 @@
 import {useSelector, useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom';
 
 function ReviewFeedback() {
 
+    const history = useHistory();
     const dispatch = useDispatch();
     const feedback = useSelector(store => store.feedback)
 
     const submitReview = (event) => {
         event.preventDefault();
         dispatch({type: 'SUBMIT_FEEDBACK'})
+        history.push('/feeling')
     }
 
     return (

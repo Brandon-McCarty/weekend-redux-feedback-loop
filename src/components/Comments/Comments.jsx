@@ -21,7 +21,7 @@ function Comments() {
 
     return (
         <form onSubmit={submitComments}>
-            <label htmlFor="comments">Enter comments below:</label>
+            <label htmlFor="comments">Enter any other comments or feedback below:</label>
             <br />
             <input
                 type="text"

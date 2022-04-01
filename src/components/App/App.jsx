@@ -17,11 +17,26 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <Header />
-        <Feeling />
-        <Understanding />
-        <Support />
-        <Comments />
+        <Route path='/'>
+          <Header />
+        </Route>
+
+        <Route path='/feeling'>
+          <Feeling />
+        </Route>
+
+        <Route path='/understanding'>
+          <Understanding />
+        </Route>
+
+        <Route path='/support'>
+          <Support />
+        </Route>
+
+        <Route path='/comments'>
+          <Comments />
+        </Route>
+        
         <Route path='/review'>
           <ReviewFeedback />
         </Route>
