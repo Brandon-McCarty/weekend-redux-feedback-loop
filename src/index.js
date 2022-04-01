@@ -24,6 +24,8 @@ const feedback = (state = [], action) => {
     case "ADD_COMMENT_FEEDBACK":
         state[3] = action.payload;
         return state;
+    case "SUBMIT_FEEDBACK":
+        return [];
     default:
         return state;
     }
