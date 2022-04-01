@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 // Import Components
 import Header from '../Header/Header';
@@ -36,7 +36,7 @@ function App() {
         <Route path='/comments'>
           <Comments />
         </Route>
-        
+
         <Route path='/review'>
           <ReviewFeedback />
         </Route>
