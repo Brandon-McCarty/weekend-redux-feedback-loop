@@ -1,5 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom';
+import axios from 'axios';
 
 function ReviewFeedback() {
 
@@ -9,6 +10,15 @@ function ReviewFeedback() {
 
     const submitReview = (event) => {
         event.preventDefault();
+
+        axios.post('/feedback', feedback)
+        .then(response => {
+            console.log('Submitting Feedback');
+        }).catch(err => {
+            console.log('Error in posting feedback', err);
+        })
+
+
         dispatch({type: 'SUBMIT_FEEDBACK'})
         history.push('/feeling')
     }
