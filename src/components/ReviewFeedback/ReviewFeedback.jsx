@@ -17,10 +17,7 @@ function ReviewFeedback() {
         }).catch(err => {
             console.log('Error in posting feedback', err);
         })
-
-
-        dispatch({type: 'SUBMIT_FEEDBACK'})
-        history.push('/feeling')
+        history.push('/success')
     }
 
     return (

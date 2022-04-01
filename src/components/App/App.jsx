@@ -10,6 +10,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import Success from '../Success/Success';
 
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
 
         <Route path='/review'>
           <ReviewFeedback />
+        </Route>
+
+        <Route path='/success'>
+          <Success />
         </Route>
       </div>
     </Router>
