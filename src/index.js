@@ -21,7 +21,7 @@ const feedback = (state = [], action) => {
     case "ADD_SUPPORT_FEEDBACK":
         state[2] = Number(action.payload);
         return state;
-    case "ADD_SUPPORT_FEEDBACK":
+    case "ADD_COMMENT_FEEDBACK":
         state[3] = action.payload;
         return state;
     default:
