@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 function Comments() {
 
+    const history = useHistory();
     const dispatch = useDispatch();
     const [comments, setComments] = useState('');
 
@@ -14,6 +16,7 @@ function Comments() {
         dispatch({ type: 'ADD_COMMENT_FEEDBACK', payload: comments })
         // Clear input field after submission
         setComments('')
+        history.push('/review')
     }
 
     return (
