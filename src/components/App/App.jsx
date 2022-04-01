@@ -5,6 +5,7 @@ import './App.css';
 // Import Components
 import Header from '../Header/Header';
 import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <div className='App'>
       <Header />
       <Feeling />
+      <Understanding />
     </div>
   );
 }

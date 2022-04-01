@@ -15,6 +15,15 @@ const feedback = (state = [], action) => {
     case "ADD_FEELING_FEEDBACK":
         state[0] = Number(action.payload);
         return state;
+    case "ADD_UNDERSTANDING_FEEDBACK":
+        state[1] = Number(action.payload);
+        return state;
+    case "ADD_SUPPORT_FEEDBACK":
+        state[2] = Number(action.payload);
+        return state;
+    case "ADD_SUPPORT_FEEDBACK":
+        state[3] = action.payload;
+        return state;
     default:
         return state;
     }
