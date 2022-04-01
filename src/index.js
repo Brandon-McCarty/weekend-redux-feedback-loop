@@ -10,24 +10,35 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 // REDUCERS
-const feedback = (state = [], action) => {
+const feedback = (state = {
+    feeling: null,
+    understanding: null,
+    support: null,
+    comments: ''
+},
+    action) => {
     switch (action.type) {
-    case "ADD_FEELING_FEEDBACK":
-        state[0] = Number(action.payload);
-        return state;
-    case "ADD_UNDERSTANDING_FEEDBACK":
-        state[1] = Number(action.payload);
-        return state;
-    case "ADD_SUPPORT_FEEDBACK":
-        state[2] = Number(action.payload);
-        return state;
-    case "ADD_COMMENT_FEEDBACK":
-        state[3] = action.payload;
-        return state;
-    case "SUBMIT_FEEDBACK":
-        return [];
-    default:
-        return state;
+        case "ADD_FEELING_FEEDBACK":
+            state.feeling = Number(action.payload);
+            return state;
+        case "ADD_UNDERSTANDING_FEEDBACK":
+            state.understanding = Number(action.payload);
+            return state;
+        case "ADD_SUPPORT_FEEDBACK":
+            state.support = Number(action.payload);
+            return state;
+        case "ADD_COMMENT_FEEDBACK":
+            state.comments = action.payload;
+            return state;
+        case "SUBMIT_FEEDBACK":
+            return {
+                feeling: null,
+                understanding: null,
+                support: null,
+                comments: ''
+            };
+        default:
+            return state;
     }
 }
 
@@ -40,8 +51,8 @@ const store = createStore(
 )
 
 ReactDOM.render(
-<Provider store={store}>
-<App />
-</Provider>, 
-document.getElementById('root'));
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
 registerServiceWorker();
