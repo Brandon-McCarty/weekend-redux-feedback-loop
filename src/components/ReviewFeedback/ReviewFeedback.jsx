@@ -1,11 +1,10 @@
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 function ReviewFeedback() {
 
     const history = useHistory();
-    const dispatch = useDispatch();
     const feedback = useSelector(store => store.feedback)
 
     const submitReview = (event) => {

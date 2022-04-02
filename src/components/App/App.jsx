@@ -22,7 +22,7 @@ function App() {
           <Header />
         </Route>
 
-        <Route path='/feeling'>
+        <Route path='/' exact>
           <Feeling />
         </Route>
 

@@ -8,7 +8,7 @@ function Success () {
 
     const startNewFeedback = () => {
         dispatch({type: 'SUBMIT_FEEDBACK'})
-        history.push('/feeling')
+        history.push('/')
     }
 
     return (
