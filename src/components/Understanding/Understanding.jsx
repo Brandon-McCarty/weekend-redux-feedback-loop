@@ -41,7 +41,7 @@ function Understanding({ handleChange, rating, resetInputs, setRating }) {
                 <button type="submit">Next</button>
             </form>
 
-            <button onClick={returnToFeelings}>Back</button>
+            <button onClick={returnToFeelings} className="backBtn">Back</button>
         </>
     )
 }

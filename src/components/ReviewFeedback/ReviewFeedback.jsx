@@ -33,7 +33,7 @@ function ReviewFeedback() {
             <h3>Support: {feedback.support}</h3>
             <br />
             <h3>Comments: {feedback.comments}</h3>
-            <button onClick={returnToComments}>Back</button>
+            <button onClick={returnToComments} className="backBtn">Back</button>
             <button onClick={submitReview}>SUBMIT</button>
         </>
     )

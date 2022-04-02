@@ -23,5 +23,6 @@ h4 {
 }
 
 button {
-  margin-left: 10px;
+  align-items:baseline;
+  display: inline;
 }

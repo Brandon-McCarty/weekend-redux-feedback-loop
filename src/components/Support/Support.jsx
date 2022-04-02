@@ -39,7 +39,7 @@ function Support({ handleChange, rating, resetInputs, setRating }) {
                 <button type="submit">Next</button>
             </form>
 
-            <button onClick={returnToUnderstanding}>Back</button>
+            <button onClick={returnToUnderstanding} className="backBtn">Back</button>
         </>
     )
 }
