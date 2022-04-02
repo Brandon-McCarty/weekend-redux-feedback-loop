@@ -1,10 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Feeling({ handleChange, rating, resetInputs }) {
+function Feeling({ handleChange, rating, resetInputs, setRating }) {
 
+    const feedback = useSelector(store => store.feedback)
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -16,6 +17,9 @@ function Feeling({ handleChange, rating, resetInputs }) {
         console.log('SUBMIT');
         dispatch({ type: 'ADD_FEELING_FEEDBACK', payload: rating })
         resetInputs();
+        // Select previous choice if editing selections
+        setRating(feedback.understanding)
+        // Send to understanding
         history.push('/understanding')
     }
 

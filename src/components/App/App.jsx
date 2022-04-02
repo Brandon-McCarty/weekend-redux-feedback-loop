@@ -42,6 +42,7 @@ function App() {
           <Feeling
             handleChange={handleChange}
             rating={rating}
+            setRating={setRating}
             resetInputs={resetInputs}
           />
         </Route>
@@ -50,6 +51,7 @@ function App() {
           <Understanding
             handleChange={handleChange}
             rating={rating}
+            setRating={setRating}
             resetInputs={resetInputs}
           />
         </Route>
@@ -57,13 +59,17 @@ function App() {
         <Route path='/support'>
           <Support
             handleChange={handleChange}
-            rating={rating} 
+            rating={rating}
+            setRating={setRating}
             resetInputs={resetInputs}
-            />
+          />
         </Route>
 
         <Route path='/comments'>
-          <Comments />
+          <Comments
+            rating={rating}
+            setRating={setRating}
+          />
         </Route>
 
         <Route path='/review'>
