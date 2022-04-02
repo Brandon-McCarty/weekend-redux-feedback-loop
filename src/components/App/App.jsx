@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 // Import Components
 import Header from '../Header/Header';
@@ -15,6 +16,16 @@ import Success from '../Success/Success';
 
 function App() {
 
+  const [rating, setRating] = useState('');
+
+  // Set the rating as the selected radio input value
+  const handleChange = (event) => {
+    const target = event.target;
+    if (target.checked) {
+      setRating(target.value);
+    }
+  };
+
   return (
     <Router>
       <div className='App'>
@@ -23,15 +34,23 @@ function App() {
         </Route>
 
         <Route path='/' exact>
-          <Feeling />
+          <Feeling
+            handleChange={handleChange}
+            rating={rating}
+          />
         </Route>
 
         <Route path='/understanding'>
-          <Understanding />
+          <Understanding
+            handleChange={handleChange}
+            rating={rating}
+          />
         </Route>
 
         <Route path='/support'>
-          <Support />
+          <Support
+            handleChange={handleChange}
+            rating={rating} />
         </Route>
 
         <Route path='/comments'>
