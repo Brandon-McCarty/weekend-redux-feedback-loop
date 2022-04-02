@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Feeling({ handleChange, rating }) {
+function Feeling({ handleChange, rating, resetInputs }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function Feeling({ handleChange, rating }) {
         event.preventDefault();
         console.log('SUBMIT');
         dispatch({ type: 'ADD_FEELING_FEEDBACK', payload: rating })
+        resetInputs();
         history.push('/understanding')
     }
 

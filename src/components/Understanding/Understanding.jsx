@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Understanding({ handleChange, rating }) {
+function Understanding({ handleChange, rating, resetInputs }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -13,7 +13,8 @@ function Understanding({ handleChange, rating }) {
     const submitUnderstanding = (event) => {
         event.preventDefault();
         console.log('SUBMIT');
-        dispatch({ type: 'ADD_UNDERSTANDING_FEEDBACK', payload: rating })
+        dispatch({ type: 'ADD_UNDERSTANDING_FEEDBACK', payload: rating });
+        resetInputs();
         history.push('/support')
     }
 

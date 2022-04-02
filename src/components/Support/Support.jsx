@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Support({ handleChange, rating }) {
+function Support({ handleChange, rating, resetInputs }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -12,7 +12,9 @@ function Support({ handleChange, rating }) {
         event.preventDefault();
         console.log('SUBMIT');
         dispatch({ type: 'ADD_SUPPORT_FEEDBACK', payload: rating });
+        resetInputs();
         history.push('/comments')
+        
     }
 
     return (

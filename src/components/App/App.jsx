@@ -26,6 +26,11 @@ function App() {
     }
   };
 
+  // Reset the inputs to de-select the choice upon change
+  const resetInputs = () => {
+    setRating('');
+  }
+
   return (
     <Router>
       <div className='App'>
@@ -37,6 +42,7 @@ function App() {
           <Feeling
             handleChange={handleChange}
             rating={rating}
+            resetInputs={resetInputs}
           />
         </Route>
 
@@ -44,13 +50,16 @@ function App() {
           <Understanding
             handleChange={handleChange}
             rating={rating}
+            resetInputs={resetInputs}
           />
         </Route>
 
         <Route path='/support'>
           <Support
             handleChange={handleChange}
-            rating={rating} />
+            rating={rating} 
+            resetInputs={resetInputs}
+            />
         </Route>
 
         <Route path='/comments'>
