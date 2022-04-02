@@ -1,10 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Understanding({ handleChange, rating, resetInputs }) {
+function Understanding({ handleChange, rating, resetInputs, setRating }) {
 
+    const feedback = useSelector(store => store.feedback)
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -15,7 +17,16 @@ function Understanding({ handleChange, rating, resetInputs }) {
         console.log('SUBMIT');
         dispatch({ type: 'ADD_UNDERSTANDING_FEEDBACK', payload: rating });
         resetInputs();
+        // Select previous choice if editing selections
+        setRating(feedback.support)
+        // Send to support
         history.push('/support')
+    }
+
+    const returnToFeelings = () => {
+        // Set rating to show previous selection for user reference
+        setRating(feedback.feeling)
+        history.push('/');
     }
 
     return (
@@ -29,6 +40,8 @@ function Understanding({ handleChange, rating, resetInputs }) {
                 />
                 <button type="submit">Next</button>
             </form>
+
+            <button onClick={returnToFeelings}>Back</button>
         </>
     )
 }
