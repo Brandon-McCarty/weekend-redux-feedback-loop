@@ -3,9 +3,12 @@ import { useHistory } from 'react-router-dom';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Feeling({ handleChange, rating, resetInputs, setRating }) {
+// Material UI
+import Button from '@material-ui/core/Button';
 
-    const feedback = useSelector(store => store.feedback)
+function Feeling({ handleChange, rating, setRating }) {
+
+    const feedback = useSelector(store => store.feedback);
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -15,12 +18,11 @@ function Feeling({ handleChange, rating, resetInputs, setRating }) {
     const submitFeeling = (event) => {
         event.preventDefault();
         console.log('SUBMIT');
-        dispatch({ type: 'ADD_FEELING_FEEDBACK', payload: rating })
-        resetInputs();
+        dispatch({ type: 'ADD_FEELING_FEEDBACK', payload: rating });
         // Select previous choice if editing selections
-        setRating(feedback.understanding)
+        setRating(feedback.understanding);
         // Send to understanding
-        history.push('/understanding')
+        history.push('/understanding');
     }
 
     return (
@@ -33,7 +35,7 @@ function Feeling({ handleChange, rating, resetInputs, setRating }) {
                     rating={rating}
                 />
 
-                <button type="submit">Next</button>
+                <Button variant="contained" color="primary" type="submit">Next</Button>
             </form>
         </>
     )

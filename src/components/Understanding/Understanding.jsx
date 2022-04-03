@@ -4,9 +4,12 @@ import {useSelector} from 'react-redux';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Understanding({ handleChange, rating, resetInputs, setRating }) {
+// Material UI
+import Button from '@material-ui/core/Button';
 
-    const feedback = useSelector(store => store.feedback)
+function Understanding({ handleChange, rating, setRating }) {
+
+    const feedback = useSelector(store => store.feedback);
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -16,16 +19,15 @@ function Understanding({ handleChange, rating, resetInputs, setRating }) {
         event.preventDefault();
         console.log('SUBMIT');
         dispatch({ type: 'ADD_UNDERSTANDING_FEEDBACK', payload: rating });
-        resetInputs();
         // Select previous choice if editing selections
-        setRating(feedback.support)
+        setRating(feedback.support);
         // Send to support
-        history.push('/support')
+        history.push('/support');
     }
 
     const returnToFeelings = () => {
         // Set rating to show previous selection for user reference
-        setRating(feedback.feeling)
+        setRating(feedback.feeling);
         history.push('/');
     }
 
@@ -38,10 +40,10 @@ function Understanding({ handleChange, rating, resetInputs, setRating }) {
                     handleChange={handleChange}
                     rating={rating}
                 />
-                <button type="submit">Next</button>
+                <Button variant="contained" color="primary" type="submit">Next</Button>
             </form>
 
-            <button onClick={returnToFeelings}>Back</button>
+            <Button  variant="contained" onClick={returnToFeelings} className="backBtn">Back</Button>
         </>
     )
 }

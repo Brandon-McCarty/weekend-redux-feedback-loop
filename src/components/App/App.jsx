@@ -1,8 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { useState } from 'react';
+
+
 
 // Import Components
 import Header from '../Header/Header';
@@ -26,11 +27,6 @@ function App() {
     }
   };
 
-  // Reset the inputs to de-select the choice upon change
-  const resetInputs = () => {
-    setRating('');
-  }
-
   return (
     <Router>
       <div className='App'>
@@ -43,7 +39,6 @@ function App() {
             handleChange={handleChange}
             rating={rating}
             setRating={setRating}
-            resetInputs={resetInputs}
           />
         </Route>
 
@@ -52,7 +47,6 @@ function App() {
             handleChange={handleChange}
             rating={rating}
             setRating={setRating}
-            resetInputs={resetInputs}
           />
         </Route>
 
@@ -61,7 +55,6 @@ function App() {
             handleChange={handleChange}
             rating={rating}
             setRating={setRating}
-            resetInputs={resetInputs}
           />
         </Route>
 

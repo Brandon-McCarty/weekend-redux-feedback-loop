@@ -1,11 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
-function Support({ handleChange, rating, resetInputs, setRating }) {
+// Material UI
+import Button from '@material-ui/core/Button';
 
-    const feedback = useSelector(store => store.feedback)
+function Support({ handleChange, rating, setRating }) {
+
+    const feedback = useSelector(store => store.feedback);
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -14,16 +17,15 @@ function Support({ handleChange, rating, resetInputs, setRating }) {
         event.preventDefault();
         console.log('SUBMIT');
         dispatch({ type: 'ADD_SUPPORT_FEEDBACK', payload: rating });
-        resetInputs();
         // Send to comments
-        history.push('/comments')
-        
+        history.push('/comments');
+
     }
 
     const returnToUnderstanding = () => {
         // Set rating to show previous selection for user reference
         history.push('/understanding');
-        setRating(feedback.understanding)
+        setRating(feedback.understanding);
     }
 
     return (
@@ -36,10 +38,10 @@ function Support({ handleChange, rating, resetInputs, setRating }) {
                     handleChange={handleChange}
                     rating={rating}
                 />
-                <button type="submit">Next</button>
+                <Button variant="contained" color="primary" type="submit">Next</Button>
             </form>
 
-            <button onClick={returnToUnderstanding}>Back</button>
+            <Button variant="contained" onClick={returnToUnderstanding} className="backBtn">Back</Button>
         </>
     )
 }
