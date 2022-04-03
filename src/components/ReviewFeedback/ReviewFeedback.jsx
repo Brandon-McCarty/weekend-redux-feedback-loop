@@ -2,10 +2,13 @@ import {useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
+// Material UI
+import Button from '@material-ui/core/Button';
+
 function ReviewFeedback() {
 
     const history = useHistory();
-    const feedback = useSelector(store => store.feedback)
+    const feedback = useSelector(store => store.feedback);
 
     const submitReview = () => {
         // Post feedback to database table "feedback"
@@ -15,7 +18,7 @@ function ReviewFeedback() {
         }).catch(err => {
             console.log('Error in posting feedback', err);
         })
-        history.push('/success')
+        history.push('/success');
     }
 
     const returnToComments = () => {
@@ -33,8 +36,8 @@ function ReviewFeedback() {
             <h3>Support: {feedback.support}</h3>
             <br />
             <h3>Comments: {feedback.comments}</h3>
-            <button onClick={returnToComments} className="backBtn">Back</button>
-            <button onClick={submitReview}>SUBMIT</button>
+            <Button variant="contained" onClick={returnToComments} className="backBtn">Back</Button>
+            <Button variant="contained" color="primary" onClick={submitReview}>SUBMIT</Button>
         </>
     )
 }

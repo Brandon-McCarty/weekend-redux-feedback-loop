@@ -22,11 +22,19 @@ h4 {
   font-style: italic;
 }
 
-button {
- margin-left: 20px;
+label {
  margin-right: 20px;
 }
 
-.backBtn {
-margin-top: 90px;
+input {
+margin-bottom: 90px;
+}
+
+.comments {
+  margin-right: 20px;
+}
+
+.reviewBtn {
+  margin-right: 20px;
+  margin-left: 20px;
 }

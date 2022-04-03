@@ -1,5 +1,8 @@
 import {useHistory} from 'react-router-dom';
-import {useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux';
+
+// Material UI
+import Button from '@material-ui/core/Button';
 
 function Success () {
 
@@ -16,7 +19,7 @@ function Success () {
         <>
         <h1>Thank you for your Feedback!</h1>
         <br />
-        <button onClick={startNewFeedback}>Start New Feedback</button>
+        <Button variant="contained" color="primary" onClick={startNewFeedback}>Start New Feedback</Button>
         </>
     )
 }
