@@ -1,17 +1,19 @@
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import {useState} from 'react';
 
 // Material UI
 import Button from '@material-ui/core/Button';
 
-function Success () {
+function Success ({rating, setRating}) {
 
     const history = useHistory();
     const dispatch = useDispatch();
 
     const startNewFeedback = () => {
-        dispatch({type: 'SUBMIT_FEEDBACK'})
-        history.push('/')
+        dispatch({type: 'SUBMIT_FEEDBACK'});
+        setRating('');
+        history.push('/');
     }
 
     return (

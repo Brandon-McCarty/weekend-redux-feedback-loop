@@ -70,7 +70,10 @@ function App() {
         </Route>
 
         <Route path='/success'>
-          <Success />
+          <Success 
+          rating={rating}
+          setRating={setRating}
+          />
         </Route>
       </div>
     </Router>
