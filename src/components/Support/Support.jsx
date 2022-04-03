@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 import {useSelector} from 'react-redux';
 
-function Support({ handleChange, rating, resetInputs, setRating }) {
+function Support({ handleChange, rating, setRating }) {
 
     const feedback = useSelector(store => store.feedback)
     const history = useHistory();
@@ -14,7 +14,6 @@ function Support({ handleChange, rating, resetInputs, setRating }) {
         event.preventDefault();
         console.log('SUBMIT');
         dispatch({ type: 'ADD_SUPPORT_FEEDBACK', payload: rating });
-        resetInputs();
         // Send to comments
         history.push('/comments')
         

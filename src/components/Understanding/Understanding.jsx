@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Understanding({ handleChange, rating, resetInputs, setRating }) {
+function Understanding({ handleChange, rating, setRating }) {
 
     const feedback = useSelector(store => store.feedback)
     const history = useHistory();
@@ -16,7 +16,6 @@ function Understanding({ handleChange, rating, resetInputs, setRating }) {
         event.preventDefault();
         console.log('SUBMIT');
         dispatch({ type: 'ADD_UNDERSTANDING_FEEDBACK', payload: rating });
-        resetInputs();
         // Select previous choice if editing selections
         setRating(feedback.support)
         // Send to support

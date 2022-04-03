@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import FeedbackInput from '../FeedbackInput/FeedbackInput';
 
-function Feeling({ handleChange, rating, resetInputs, setRating }) {
+function Feeling({ handleChange, rating, setRating }) {
 
     const feedback = useSelector(store => store.feedback)
     const history = useHistory();
@@ -16,7 +16,6 @@ function Feeling({ handleChange, rating, resetInputs, setRating }) {
         event.preventDefault();
         console.log('SUBMIT');
         dispatch({ type: 'ADD_FEELING_FEEDBACK', payload: rating })
-        resetInputs();
         // Select previous choice if editing selections
         setRating(feedback.understanding)
         // Send to understanding

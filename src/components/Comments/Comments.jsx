@@ -39,12 +39,10 @@ function Comments({setRating}) {
                     value={comments}
                     onChange={(event) => setComments(event.target.value)}
                 />
-
-                <br />
-                <button onClick={returnToSupport} className="backBtn">Back</button>
+                
                 <button type="submit">Next</button>
             </form>
-
+            <button onClick={returnToSupport} className="backBtn">Back</button>
             
         </>
     )

@@ -26,11 +26,6 @@ function App() {
     }
   };
 
-  // Reset the inputs to de-select the choice upon change
-  const resetInputs = () => {
-    setRating('');
-  }
-
   return (
     <Router>
       <div className='App'>
@@ -43,7 +38,6 @@ function App() {
             handleChange={handleChange}
             rating={rating}
             setRating={setRating}
-            resetInputs={resetInputs}
           />
         </Route>
 
@@ -52,7 +46,6 @@ function App() {
             handleChange={handleChange}
             rating={rating}
             setRating={setRating}
-            resetInputs={resetInputs}
           />
         </Route>
 
@@ -61,7 +54,6 @@ function App() {
             handleChange={handleChange}
             rating={rating}
             setRating={setRating}
-            resetInputs={resetInputs}
           />
         </Route>
 
